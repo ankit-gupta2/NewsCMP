@@ -1,0 +1,22 @@
+CREATE TABLE NewsEntity  (
+    id TEXT PRIMARY KEY NOT NULL,
+    title TEXT,
+    description TEXT,
+    content TEXT,
+    date TEXT,
+    imageUrl TEXT,
+    sourceName TEXT,
+    sourceIconUrl TEXT,
+    category TEXT
+);
+
+insertNewsEntity:
+INSERT OR REPLACE INTO NewsEntity (
+    id, title, description, content, date, imageUrl, sourceName, sourceIconUrl, category
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?);
+
+getAllNewsItemsForCategory:
+SELECT * FROM NewsEntity WHERE category = ?;
+
+getCountForAllNewsItemsForCategory:
+SELECT count(*) FROM NewsEntity WHERE category = ?;
